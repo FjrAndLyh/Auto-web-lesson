@@ -12,7 +12,7 @@ from PIL import Image, ImageChops
 #用户信息
 username = '账号'
 password = '密码'
-#判断播放完毕标志位
+#判断播放完毕标志位   
 style = '0'
 #伪造用户代理
 opts = Options()
@@ -55,6 +55,7 @@ def find_lesson():
 def auto_play(style):
     time.sleep(1)
     browser.switch_to.window(browser.window_handles[-1])
+    #这里找到了每个视频的xpath之间的联系，具体就是after那个地方每次都＋1，所以可以以这种方式自动连播，也可寻找其他规律后修改
     for i in range(1,29):
         after = str(i)
         path = '//*[@id="pane-student_school_report"]/div/div[2]/section[2]/div[2]/ul/li['+after+']/div[1]/span'
